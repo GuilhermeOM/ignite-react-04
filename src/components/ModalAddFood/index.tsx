@@ -1,21 +1,22 @@
-import { createRef, useRef, useState } from 'react';
+import { createRef } from 'react';
 import { FiCheckSquare } from 'react-icons/fi';
 
 import { Form } from './styles';
 import { Modal } from '../Modal';
 import Input from '../Input';
 import { FormHandles } from '@unform/core';
+import { FoodObject } from '../../pages/Dashboard';
 
 interface ModalAddFoodProps {
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-  handleAddFood: (object: object) => void;
+  handleAddFood: (food: FoodObject) => Promise<void>;
 }
 
 export const ModalAddFood = ({ isOpen, setIsOpen, handleAddFood }: ModalAddFoodProps): JSX.Element => {
   const formRef = createRef<FormHandles>();
 
-  const handleSubmit = async (data: object) => { handleAddFood(data); setIsOpen(false); }
+  const handleSubmit = async (data: FoodObject) => { handleAddFood(data); setIsOpen(false); }
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>

@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import { Form as Unform } from '@unform/web';
 import { RefObject } from 'react';
 import { FormHandles } from '@unform/core';
+import { FoodObject } from '../../pages/Dashboard';
 
 interface FormProps {
   ref: RefObject<FormHandles>;
-  onSubmit: (e: Event) => Promise<void>
+  onSubmit: (food: FoodObject) => Promise<void>
 }
 
 export const Form = styled(Unform)<FormProps>`

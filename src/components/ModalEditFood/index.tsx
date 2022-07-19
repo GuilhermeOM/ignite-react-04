@@ -7,23 +7,17 @@ import Input from '../Input';
 
 import { FormHandles } from '@unform/core';
 
+import { FoodObject } from '../../pages/Dashboard';
+
 interface ModalEditFoodProps {
   isOpen: boolean;
-  editingFood: Food;
+  editingFood: FoodObject;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  handleUpdateFood: (food: Food) => void;
-}
-
-interface Food {
-  id: number;
-  name: string;
-  image: string;
-  description: string;
-  price: number;
+  handleUpdateFood: (food: FoodObject) => void;
 }
 
 export const ModalEditFood = ({ isOpen, editingFood, setIsOpen, handleUpdateFood }: ModalEditFoodProps): JSX.Element => {
-  const handleSubmit = async (data: Food) => { handleUpdateFood(data); setIsOpen(false); }
+  const handleSubmit = async (data: FoodObject) => { handleUpdateFood(data); setIsOpen(false); }
 
   const formRef = createRef<FormHandles>();
 
